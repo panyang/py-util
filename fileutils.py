@@ -127,12 +127,11 @@ def fileLen(filename):
     """
     Get the length of the file in bytes.
     """
-    f = open(filename, 'r', errors = 'ignore')
-    count = 0
     try:
-        lines = f.readlines()
-        f.close()
-        n = len(lines)
+        with open(filename, 'r', errors = 'ignore') as f:
+            count = 0
+            lines = f.readlines()
+            n = len(lines)
     except:
         print("Cannot read")
         print(filename)
